@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h2>Supplier Details</h2>
+    <div class="card-body">
+        <div class = "table-resposive" >
+    <table class="table" id="kt_datatable" style="width: 100%">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Name </th>
+                <th>Bio</th>
+                <th>Address</th>
+                <th>Contact</th>
+                <th>Birthdate</th>
+                <th>Supplying Items</th>
+                <th>Supplier Image</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for supplier in object_list %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ supplier.supplier_name }}</td>
+                <td>{{ supplier.supplier_bio }}</td>
+                <td>{{ supplier.supplier_address }}</td>
+                <td>{{ supplier.supplier_contact }}</td>
+                <td>{{ supplier.supplier_birthdate }}</td>
+                <td>{{ supplier.supplier_supply}}</td>
+                <td>{{ supplier.supplier_img }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    </div>
+</div>
+{% endblock %}

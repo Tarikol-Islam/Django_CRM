@@ -54,6 +54,8 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 LOCAL_APPS =[
      'common.apps.CommonConfig',
      'user.apps.UserConfig',
+     'SalesApp',
+     'ProductionApp',
  ]
 INSTALLED_APPS = DEFAULT_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
@@ -134,7 +136,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Dhaka'
 
 USE_I18N = True
 

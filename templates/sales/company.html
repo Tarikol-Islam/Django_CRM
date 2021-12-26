@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h2>Orders</h2>
+    <div class="card-body">
+        <div class = "table-resposive" >
+    <table class="table" id="kt_datatable" style="">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Comapny</th>
+                <th>Address</th>
+                <th>Product</th>
+                <th>Account.</th>
+                <th>Webpage</th>
+                <th>Email</th>
+                <th>Contact No.</th>
+                <th>Representative</th>
+                <th>Status</th>
+                <th style="width: 180px">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for company in object_list %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ company.business_name }}</td>
+                <td>{{ company.business_address }}</td>
+                <td>{{ company.business_product }}</td>
+                <td>{{ company.business_bank_account }}</td>
+                <td>{{ company.business_website | truncatechars:10 }}</td>
+                <td>{{ company.business_email | truncatechars:10}}</td>
+                <td>{{ company.business_contact_number }}</td>
+                <td>{{ company.business_contact_person }}</td>
+                <td>{{ company.business_status }}</td>
+                <td>
+                    <a class="btn btn-sm btn-light-warning"
+                        href="{% url 'update_company' company.pk %}"><i class="flaticon-edit"></i>
+                    </a>
+                    <a class="btn btn-sm btn-light-danger"
+                        href="{% url 'delete_company' company.pk %}"><i
+                            class="flaticon-delete"></i></a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    </div>
+</div>
+{% endblock %}

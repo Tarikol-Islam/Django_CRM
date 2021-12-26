@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    
+    <h2>Products</h2>
+    <div class="card-body">
+        <div class = "table-resposive" >
+    <table class="table" id="kt_datatable" style="width: 100%">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Product</th>
+                <th>Price</th>
+                <th>description</th>
+                <th>Quantity</th>
+                <th>Picture</th>
+                <th style="width: 180px">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product in object_list %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ product.product_name | truncatechars:10}}</td>
+                <td>{{ product.product_price }}</td>
+                <td>{{ product.product_desc | truncatechars:15 }}</td>
+                <td>{{ product.product_qty }}</td>
+                <td>{{ product.product_pic | truncatechars:10}}</td>
+                <td>
+                    <a class="btn btn-sm btn-light-warning"
+                        href="{% url 'update_product' product.pk %}"><i class="flaticon-edit"></i>
+                    </a>
+                    <a class="btn btn-sm btn-light-danger"
+                        href="{% url 'delete_product' product.pk %}"><i
+                            class="flaticon-delete"></i></a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    </div>
+</div>
+{% endblock %}

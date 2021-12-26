@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h2>Raw orders form suppliers</h2>
+    <div class="card-body">
+        <div class = "table-resposive" >
+    <table class="table" id="kt_datatable" style="width: 100%">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Order Placer</th>
+                <th>Items</th>
+                <th>Price</th>
+                <th>Order Status</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for order in object_list %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ order.order_by }}</td>
+                <td>{{ order.item_is }}</td>
+                <td>{{ order.asking_price }}</td>
+                <td>{{ order.order_status }}</td>
+
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    </div>
+</div>
+{% endblock %}

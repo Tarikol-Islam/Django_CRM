@@ -58,10 +58,7 @@ class ProfileUpdateView(LoginRequiredMixin, TemplateView):
             messages.success(request, 'Your profile was successfully updated!')
             return HttpResponseRedirect(reverse_lazy('Profile'))
 
-        context = self.get_context_data(
-                                        user_form=user_form,
-                                        profile_form=profile_form
-                                    )
+        context = self.get_context_data(user_form=user_form,profile_form=profile_form)
 
         return self.render_to_response(context)     
 

@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h2>Raw Materials</h2>
+    <div class="card-body">
+        <div class = "table-resposive" >
+    <table class="table" id="kt_datatable" style="width: 100%">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Description </th>
+                <th>Quantity</th>
+                <th>Action</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for materials in object_list %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ materials.raw_name }}</td>
+                <td>{{ materials.raw_description }}</td>
+                <td>{{ materials.raw_qty }}</td>
+                <td>{{ forloop.counter }}</td>
+
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    </div>
+</div>
+{% endblock %}

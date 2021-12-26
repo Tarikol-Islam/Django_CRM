@@ -21,7 +21,8 @@ from common.views import SignUpView, Home, DashboardView,Test, ProfileUpdateView
 from django.contrib.auth import views as auth_views
 from django.views.generic import TemplateView
 from emailer import views
-
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -61,12 +62,12 @@ urlpatterns = [
     path('profile-update/', ProfileUpdateView.as_view(), name='Profile-update'),
     path('profile/', ProfileView.as_view(), name='Profile'),
     path('oauth/', include('social_django.urls', namespace='Social')),
-    path('api/', include('user.api.urls'))
-
+    path('api/', include('user.api.urls')),
+    path('sales/',include('SalesApp.urls')),
+    path('production/',include('ProductionApp.urls')),
 ]
 
-from django.conf import settings
-from django.conf.urls.static import static
+
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
